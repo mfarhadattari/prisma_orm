@@ -13,6 +13,11 @@ const main = async () => {
   // await relationalQueries();
   // await filtering();
   // await logging();
+  // await aggregation();
+  // await groupBy();
+  // await batchTransaction();
+  // await interactiveTransaction();
+  // await rawQuery();
 };
 
 main();

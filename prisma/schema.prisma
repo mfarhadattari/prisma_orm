@@ -11,6 +11,7 @@ model User {
   id       Int      @id @default(autoincrement())
   username String   @unique
   email    String
+  age      Int      @default(18)
   role     UserRole @default(user)
   profile  Profile? // one to one
   post     Post[] // one to many
@@ -32,6 +33,7 @@ model Post {
   title        String
   content      String
   published    Boolean        @default(false)
+  like         Int            @default(50)
   authorId     Int
   author       User           @relation(fields: [authorId], references: [id]) // one to many
   createdAt    DateTime       @default(now())
