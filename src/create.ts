@@ -11,44 +11,24 @@ const create = async () => {
   /* const createMany = await prisma.user.createMany({
     data: [
       {
-        name: "John Doe",
-        email: "john@example.com",
+        username: "john_doe",
+        email: "john.doe@example.com",
+        role: "user",
       },
       {
-        name: "Jane Smith",
-        email: "jane@example.com",
+        username: "jane_smith",
+        email: "jane.smith@example.com",
+        role: "user",
       },
       {
-        name: "Alice Johnson",
-        email: "alice@example.com",
+        username: "admin_123",
+        email: "admin@example.com",
+        role: "admin",
       },
       {
-        name: "Bob Brown",
-        email: "bob@example.com",
-      },
-      {
-        name: "Eve Taylor",
-        email: "eve@example.com",
-      },
-      {
-        name: "Michael Clark",
-        email: "michael@example.com",
-      },
-      {
-        name: "Emily White",
-        email: "emily@example.com",
-      },
-      {
-        name: "David Lee",
-        email: "david@example.com",
-      },
-      {
-        name: "Sarah Turner",
-        email: "sarah@example.com",
-      },
-      {
-        name: "Matthew Harris",
-        email: "matthew@example.com",
+        username: "alice_wonder",
+        email: "alice.wonder@example.com",
+        role: "user",
       },
     ],
   });

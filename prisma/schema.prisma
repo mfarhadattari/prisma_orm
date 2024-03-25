@@ -8,8 +8,59 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  name String
-  email String @unique
-  isActive Boolean @default(false)
+  id       Int      @id @default(autoincrement())
+  username String   @unique
+  email    String
+  role     UserRole @default(user)
+  profile  Profile? // one to one
+  post     Post[] // one to many
+
+  @@map("users")
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  userId Int     @unique
+  user   User    @relation(fields: [userId], references: [id]) // one to one
+
+  @@map("pofiles")
+}
+
+model Post {
+  id           Int            @id @default(autoincrement())
+  title        String
+  content      String
+  published    Boolean        @default(false)
+  authorId     Int
+  author       User           @relation(fields: [authorId], references: [id]) // one to many
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  postCategory PostCategory[]
+
+  @@map("posts")
+}
+
+model Category {
+  id           Int            @id @default(autoincrement())
+  name         String
+  postCategory PostCategory[]
+
+  @@map("categories")
+}
+
+model PostCategory {
+  postId Int
+  post   Post @relation(fields: [postId], references: [id])
+
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  @@id([postId, categoryId])
+  @@map("post_categories")
+}
+
+enum UserRole {
+  admin
+  user
 }

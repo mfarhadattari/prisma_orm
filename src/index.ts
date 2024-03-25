@@ -10,6 +10,9 @@ const main = async () => {
   // await upsert();
   // await pagination();
   // await sorting();
+  // await relationalQueries();
+  // await filtering();
+  // await logging();
 };
 
 main();
